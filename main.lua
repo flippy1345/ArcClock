@@ -1,3 +1,4 @@
+-- Working --
 function love.load(arg)
   screenWith, screenHeight = love.graphics.getDimensions()
 end
