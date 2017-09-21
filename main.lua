@@ -3,7 +3,7 @@ function love.load(arg)
   love.graphics.setLineWidth(3)
   love.graphics.setLineStyle('smooth')
   love.graphics.setDefaultFilter('nearest', 'nearest', 16)
-  text = love.graphics.newText(love.graphics.getFont(), "hi")
+  text = love.graphics.newText(love.graphics.getFont(), "")
 
   -- for the atom color package --
   function rgb(r, g, b, a)
