@@ -1,4 +1,4 @@
--- Working --
+-- Master --
 function love.load(arg)
   love.graphics.setLineWidth(3)
   love.graphics.setLineStyle('smooth')
