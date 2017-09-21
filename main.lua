@@ -28,6 +28,10 @@ function love.load(arg)
     love.graphics.rotate(math.pi*0.5)
     love.graphics.translate(-sWidth/2, -sHeight/2)
   end
+
+  function showClock(width, height, drawableTimeText)
+    love.graphics.draw(drawableTimeText, (width/2)-(text:getWidth()/2) , (height/2)-(text:getHeight()/2))
+  end
 end
 
 function love.update(dt)
@@ -39,6 +43,7 @@ end
 
 function love.draw()
   arcClock(screenWidth, screenHeight, osTime, rgb(16, 141, 212))
-  love.graphics.draw(text, (screenWidth/2)-(text:getWidth()/2) , (screenHeight/2)-(text:getHeight()/2))
+  showClock(screenWidth, screenHeight, text)
+  -- Testing --
   print("Rad: "..math.rad(6*osTime.sec), "Degree: "..6*osTime.sec)
 end
