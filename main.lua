@@ -3,7 +3,8 @@ function love.load(arg)
   love.graphics.setLineWidth(3)
   love.graphics.setLineStyle('smooth')
   love.graphics.setDefaultFilter('nearest', 'nearest', 16)
-  text = love.graphics.newText(love.graphics.getFont(), "")
+  ubuntuFont = love.graphics.newFont("resourcen/fonts/Ubuntu-Medium.ttf", 16)
+  text = love.graphics.newText(ubuntuFont, "")
 
   -- for the atom color package --
   function rgb(r, g, b, a)
@@ -31,12 +32,13 @@ end
 
 function love.update(dt)
   screenWidth, screenHeight = love.graphics.getDimensions()
-  osTime = os.date('*t')
   love.window.setTitle("ArcClock "..love.timer.getFPS().."FPS")
+  osTime = os.date('*t')
+  text:set(osTime.hour..":"..osTime.min..":"..osTime.sec)
 end
 
 function love.draw()
-  arcClock(screenWidth, screenHeight, osTime, rgb(231, 7, 74))
+  arcClock(screenWidth, screenHeight, osTime, rgb(16, 141, 212))
   love.graphics.draw(text, (screenWidth/2)-(text:getWidth()/2) , (screenHeight/2)-(text:getHeight()/2))
   print("Rad: "..math.rad(6*osTime.sec), "Degree: "..6*osTime.sec)
 end
