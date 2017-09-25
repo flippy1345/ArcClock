@@ -9,7 +9,10 @@ function love.load(arg)
 
 
   -- for the atom color package --
-  function rgb(r, g, b, a)
+  function rgb(r, g, b)
+    return r, g, b
+  end
+  function rgba(r, g, b, a)
     return r, g, b, a
   end
 
