@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 extern vec2 size;
 extern int samples = 5; // pixels per axis; higher = bigger glow, worse performance
 extern float quality = 2.5; // lower = smaller glow, better quality
@@ -23,4 +20,3 @@ vec4 effect(vec4 colour, Image tex, vec2 tc, vec2 sc)
 
   return ((sum / (samples * samples)) + source) * colour;
 }
->>>>>>> 33d407af7b09fbcc7a0a117229e3e1169cf1a4fe
