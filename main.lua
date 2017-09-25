@@ -5,12 +5,7 @@ function love.load(arg)
   love.graphics.setLineStyle('smooth')
   love.graphics.setDefaultFilter('nearest', 'nearest', 16)
   ubuntuFont = love.graphics.newFont("resources/fonts/Ubuntu-Medium.ttf", 16)
-<<<<<<< HEAD
   --shaderBloom = love.graphics.newShader("resources/shader/bloom.glsl")
-=======
-  bloomShader = love.graphics.newShader("resources/shader/bloom.glsl")
-
->>>>>>> 33d407af7b09fbcc7a0a117229e3e1169cf1a4fe
 
   -- for the atom color package --
   function rgb(r, g, b)
@@ -31,15 +26,9 @@ function love.load(arg)
     love.graphics.points(endX, endY)
   end
 
-<<<<<<< HEAD
-  function arcClock(radius, sWidth, sHeight, time, steps, red, green, blue, alpha)
-    local defaultColor = {love.graphics.getColor()}
-    local secondToRad = math.rad((360/steps)*time)
-=======
   function arcClock(radius, sWidth, sHeight, currentPercent, maxPercent, red, green, blue, alpha)
     local defaultColor = {love.graphics.getColor()}
     local secondToRad = math.rad((360/maxPercent)*currentPercent)
->>>>>>> 33d407af7b09fbcc7a0a117229e3e1169cf1a4fe
     local redIN, greenIN, blueIN, alphaIN = red or 255, green or 255, blue or 255, alpha or 255
 
     love.graphics.translate(sWidth/2, sHeight/2)
@@ -81,16 +70,8 @@ function love.update(dt)
 end
 
 function love.draw()
-<<<<<<< HEAD
-  --love.graphics.setShader(shaderBloom)
-  arcClock(200, screenWidth, screenHeight, osTime.sec, 60, rgb(0, 255, 79)) -- sec
-  arcClock(175, screenWidth, screenHeight, osTime.min, 60, rgb(0, 94, 255)) -- min
-  arcClock(150, screenWidth, screenHeight, osTime.hour, 24, rgb(208, 0, 69)) -- hour
-  love.graphics.setShader()
-=======
   arcClock(200, screenWidth, screenHeight, osTime.sec, 60,  rgb(0, 255, 79)) -- sec
   arcClock(175, screenWidth, screenHeight, osTime.min, 60, rgb(0, 94, 255)) -- min
   arcClock(150, screenWidth, screenHeight, osTime.hour % 12, 12, rgb(208, 0, 69)) -- hour
->>>>>>> 33d407af7b09fbcc7a0a117229e3e1169cf1a4fe
   showClock(screenWidth, screenHeight, osTime, ubuntuFont, rgb(96, 95, 92))
 end
