@@ -70,6 +70,6 @@ end
 function love.draw()
   arcClock(200, screenWidth, screenHeight, osTime.sec, 60,  rgb(0, 255, 79)) -- sec
   arcClock(175, screenWidth, screenHeight, osTime.min, 60, rgb(0, 94, 255)) -- min
-  arcClock(150, screenWidth, screenHeight, osTime.hour%12, 12, rgb(208, 0, 69)) -- hour
+  arcClock(150, screenWidth, screenHeight, osTime.hour % 12, 12, rgb(208, 0, 69)) -- hour
   showClock(screenWidth, screenHeight, osTime, ubuntuFont, rgb(96, 95, 92))
 end
