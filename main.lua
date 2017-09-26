@@ -5,6 +5,7 @@ function love.load(arg)
   love.graphics.setLineStyle('smooth')
   love.graphics.setDefaultFilter('nearest', 'nearest', 16)
   ubuntuFont = love.graphics.newFont("resources/fonts/Ubuntu-Medium.ttf", 16)
+  shader = love.graphics.newShader("resources/shader/shaderGlow.glsl")
 
   -- for the atom color package --
   function rgb(r, g, b)
