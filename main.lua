@@ -44,12 +44,12 @@ function love.load(arg)
   function showClock(xPos, yPos, time, font, red, green, blue, alpha)
     local redIN, greenIN, blueIN, alphaIN = red or 255, green or 255, blue or 255, alpha or 255
     local timeData = {
-      function() if string.len(time.hour) < 2 then return "0"..time.hour else return time.hour end end,
-      function() if string.len(time.min) < 2 then return "0"..time.min else return time.min end end,
-      function() if string.len(time.sec) < 2 then return "0"..time.sec else return time.sec end end
+      string.format("%02d", time.hour),
+      string.format("%02d", time.min),
+      string.format("%02d", time.sec)
     }
     local defaultColor = {love.graphics.getColor()}
-    local timeText = love.graphics.newText(font, timeData[1]()..":"..timeData[2]()..":"..timeData[3]())
+    local timeText = love.graphics.newText(font, timeData[1]..":"..timeData[2]..":"..timeData[3])
 
     love.graphics.setColor(redIN, greenIN, blueIN, alphaIN)
 
