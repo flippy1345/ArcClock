@@ -1,7 +1,7 @@
 local toggleFullscreen = false
 local showFPS = false
 
--- Master --
+-- Working --
 function love.load(arg)
   love.graphics.setLineWidth(10)
   love.graphics.setPointSize(10)
