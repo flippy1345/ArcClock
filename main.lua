@@ -1,5 +1,6 @@
 -- Working --
 local toggleFullscreen = false
+local showFPS = false
 function love.load(arg)
   love.graphics.setLineWidth(10)
   love.graphics.setPointSize(10)
@@ -64,6 +65,8 @@ function love.load(arg)
     if key == 'f' then
       toggleFullscreen = not toggleFullscreen
       love.window.setFullscreen(toggleFullscreen)
+    elseif key == 't' then
+      showFPS = not showFPS
     end
   end
 end
@@ -71,8 +74,12 @@ end
 function love.update(dt)
   screenWidth, screenHeight = love.graphics.getDimensions()
   osTime = os.date('*t')
-  love.window.setTitle("ArcClock "..love.timer.getFPS().."FPS")
-  fpsText:set({{rgb(124, 130, 130)}, "ArcClock "..love.timer.getFPS().."FPS"})
+  if showFPS then
+    love.window.setTitle("ArcClock "..love.timer.getFPS().."FPS")
+    fpsText:set({{rgb(124, 130, 130)}, "ArcClock "..love.timer.getFPS().."FPS"})
+  elseif not showFPS then
+    love.window.setTitle("ArcClock ")
+  end
 end
 
 function love.draw()
@@ -82,7 +89,7 @@ function love.draw()
   arcClock(150, 0, 0, osTime.hour % 12, 12, rgb(208, 0, 69)) -- hour
   showClock(0, 0, osTime, ubuntuFont, rgb(96, 95, 92))
   love.graphics.translate(-screenWidth / 2, - screenHeight / 2)
-  if toggleFullscreen then
+  if toggleFullscreen and showFPS then
     love.graphics.draw(fpsText, 2, 2)
   end
 end
